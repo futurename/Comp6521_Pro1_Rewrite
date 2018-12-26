@@ -1,0 +1,511 @@
+
+import java.io.*;
+import java.nio.ByteBuffer;
+import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.concurrent.CountDownLatch;
+import java.util.stream.Collectors;
+
+import javax.jws.Oneway;
+
+public class TPMMS {
+	// static int totalFileNum = 0;
+	static long totalWriteTime = 0;
+	static long totalReadTime = 0;
+	static int unFinishNumInBuf = -1;
+	static final int BUF_BASE_SIZE = 51200;
+	static int fileCounter = 0;
+
+	public static void main(String[] args) throws IOException {
+
+		File file = new File("./OutFile/");
+		File[] files = file.listFiles();
+		for (File f : files) {
+			f.delete();
+		}
+
+		System.gc();
+		
+		Long startTime = System.currentTimeMillis();
+
+		int times = 10;
+
+		final String srcFilename = "./random_group10_10M_5MB.txt";
+		final String outFileBase = "./OutFile/Out_group10_10M_5MB_";
+
+		passOne(srcFilename, outFileBase, times);
+
+		System.out.println("filecounter: " + fileCounter);
+		
+		//System.gc();
+
+		passTwo(outFileBase);
+		
+		long endTime = System.currentTimeMillis();
+		long runTime = endTime - startTime;
+		
+		System.out.println("total time: " + runTime + " ms");
+		
+
+	}
+
+	private static void passTwo(String srcFileBase) throws IOException {
+		long startTime = System.currentTimeMillis();
+
+		long freeMem = Runtime.getRuntime().freeMemory();
+		
+		System.out.println("pass two free mem: " + freeMem);
+
+		int singleBufSize = (int) (freeMem / (fileCounter + 1) * 0.6);
+
+		int[][] readBuf = new int[fileCounter][singleBufSize];
+
+		System.out.println("single buf size: " + singleBufSize);
+
+		MappedByteBuffer[] mapBufArray = new MappedByteBuffer[fileCounter];
+
+		for (int i = 0; i < fileCounter; i++) {
+			String curFilename = srcFileBase.concat(String.valueOf(i)).concat(".txt");
+
+			RandomAccessFile curCAF = new RandomAccessFile(curFilename, "rw");
+
+			mapBufArray[i] = curCAF.getChannel().map(FileChannel.MapMode.READ_WRITE, 0, curCAF.length());
+
+			// System.out.println("cur map capacity: " + mapBufArray[i].capacity());
+			int numInBuf = singleBufSize / 4;
+
+			for (int j = 0; j < numInBuf; j++) {
+				readBuf[i][j] = mapBufArray[i].getInt();
+			}
+			// System.out.println("cur map pos: " + mapBufArray[i].position());
+		}
+
+		int[] outputBuf = new int[singleBufSize];
+		int[] rowPosArray = new int[fileCounter];
+		boolean[] isCurRowEmpty = new boolean[fileCounter];
+
+		int min = -1, curNum, curPos, minRow = 0;
+		boolean isFinished = false;
+
+		String outputFilename = srcFileBase.concat("final.txt");
+
+		while (!isFinished) {
+
+			long start = System.currentTimeMillis();
+
+			for (int i = 0; i < singleBufSize; i++) {
+				for (int j = 0; j < fileCounter; j++) {
+					if (!isCurRowEmpty[j]) {
+						curPos = rowPosArray[j];
+						curNum = readBuf[j][curPos];
+
+						// System.out.println("row: " + j + ", row pos: " + curPos + ", value: " +
+						// curNum + ", min: " + min);
+
+						if (min == -1) {
+							min = curNum;
+							minRow = j;
+						} else if (min > curNum) {
+							min = curNum;
+							minRow = j;
+						}
+					}
+				}
+
+				if (min != -1) {
+					// System.out.println("i: " + i + ", cur min: " + min + "\n");
+
+					outputBuf[i] = min;
+					min = -1;
+
+					int minPos = rowPosArray[minRow];
+					readBuf[minRow][minPos] = -1;
+					if (minPos >= singleBufSize - 1) {
+						int curMapPos = mapBufArray[minRow].position();
+						int unreadNum = (mapBufArray[minRow].capacity() - curMapPos) / 4;
+
+						int nextReadLimit = unreadNum > singleBufSize ? singleBufSize : unreadNum;
+						// System.out.println("next limit: " + nextReadLimit + ", unread: " + unreadNum
+						// +", isRemain:" + mapBufArray[minRow].hasRemaining());
+
+						int count = 0;
+						while (count < nextReadLimit) {
+
+							readBuf[minRow][count] = mapBufArray[minRow].getInt();
+							count++;
+						}
+						if (!mapBufArray[minRow].hasRemaining()) {
+							isCurRowEmpty[minRow] = true;
+						}
+						rowPosArray[minRow] = 0;
+					} else {
+						rowPosArray[minRow]++;
+					}
+				} else {
+					int size = i + 1;
+					int[] lastArray = new int[size];
+					for (int x = 0; x < size; x++) {
+						lastArray[x] = outputBuf[x];
+					}
+
+					passtwoWriteToFile(outputFilename, lastArray);
+					isFinished = true;
+					break;
+				}
+			}
+
+			long end = System.currentTimeMillis();
+			long run = end - start;
+			// System.out.println("----read and process time: " + run + " ms");
+
+			passtwoWriteToFile(outputFilename, outputBuf);
+		}
+
+		long endTime = System.currentTimeMillis();
+		long runTime = endTime - startTime;
+		System.out.println("pass two time: " + runTime + " ms");
+	}
+
+	private static void passtwoWriteToFile(String outputfilename, int[] outputBuf) throws IOException {
+		long start = System.currentTimeMillis();
+		int size = outputBuf.length;
+
+		BufferedWriter bfw = new BufferedWriter(new FileWriter(outputfilename, true));
+
+		
+		for (int i = 0; i < size; i++) {
+			
+			//bfw.append(String.valueOf(outputBuf[i]).concat(" "));
+			
+			bfw.write(String.valueOf(outputBuf[i]));
+			bfw.write('\t');
+		}
+
+		bfw.close();
+
+		long end = System.currentTimeMillis();
+		long run = end - start;
+		//System.out.println("cur write time: " + run + " ms");
+
+		/*
+		 * int size = outputBuf.length; RandomAccessFile rFile = new
+		 * RandomAccessFile(outputfilename, "rw");
+		 * 
+		 * 
+		 * MappedByteBuffer byteBuffer =
+		 * rFile.getChannel().map(FileChannel.MapMode.READ_WRITE, rFile.length(), size *
+		 * 4); for (int i = 0; i < size; i++) {
+		 * 
+		 * // System.out.println("i: " + i + ", value: " + outputBuf[i] + ", map pos: "
+		 * + // byteBuffer.position());
+		 * 
+		 * byteBuffer.putInt(outputBuf[i]); } rFile.close();
+		 */
+
+	}
+
+	private static void passOne(String srcFilename, String outFileBase, int times) throws IOException {
+		long startTime = System.currentTimeMillis();
+
+		int readBufSize = BUF_BASE_SIZE * times;
+
+		// char[] bufChArr = new char[readBufSize];
+
+		System.out.println("free mem after allocation: " + Runtime.getRuntime().freeMemory());
+
+		RandomAccessFile rFile = new RandomAccessFile(srcFilename, "r");
+		FileChannel fChannel = rFile.getChannel();
+
+		int readPos = 0;
+
+		ArrayList<Integer> bufList = new ArrayList<>(readBufSize);
+
+		MappedByteBuffer mappedByteBuffer = fChannel.map(FileChannel.MapMode.READ_ONLY, 0, rFile.length());
+		int enterCh;
+		boolean isFirstBuf = true;
+
+		System.out.println("map size: " + mappedByteBuffer.capacity());
+
+		while (mappedByteBuffer.hasRemaining()) {
+			if (isFirstBuf) {
+				isFirstBuf = false;
+				enterCh = mappedByteBuffer.get();
+
+				while (enterCh != 13) {
+					enterCh = mappedByteBuffer.get();
+					// System.out.println(mappedByteBuffer.position());
+				}
+
+				readPos = mappedByteBuffer.position();
+
+				readAndSaveNumbers(bufList, mappedByteBuffer, readPos, readBufSize, outFileBase);
+			} else {
+				int mapPos = mappedByteBuffer.position();
+				int unreadbytes = mappedByteBuffer.capacity() - mapPos;
+				int readLimit = unreadbytes > readBufSize ? readBufSize : unreadbytes;
+
+				readAndSaveNumbers(bufList, mappedByteBuffer, 0, readLimit, outFileBase);
+			}
+		}
+
+		long endTime = System.currentTimeMillis();
+		long runTime = endTime - startTime;
+		System.out.println("pass one time: " + runTime + " ms");
+
+		rFile.close();
+		fChannel.close();
+
+	}
+
+	private static void readAndSaveNumbers(ArrayList<Integer> bufList, MappedByteBuffer mappedByteBuffer, int readPos,
+			int readBufSize, String outFileBase) throws IOException {
+
+		long startTime = System.currentTimeMillis();
+
+		int partOne, partTwo, tempNum = -1, curDigit;
+
+		for (int i = readPos + 1; i < readBufSize; i++) {
+			int curAsc = mappedByteBuffer.get();
+
+			curDigit = curAsc - 48;
+
+			// System.out.println("curAsc: " + curAsc + ", digit: " + curDigit + ", tempNum:
+			// " + tempNum);
+
+			if (curDigit >= 0 && curDigit <= 9) {
+				if (unFinishNumInBuf != -1) {
+					tempNum = unFinishNumInBuf;
+					unFinishNumInBuf = -1;
+
+					partOne = tempNum << 3;
+					partTwo = tempNum << 1;
+					tempNum = partOne + partTwo + curDigit;
+					continue;
+				}
+				if (tempNum == -1) {
+					tempNum = curDigit;
+				} else {
+					partOne = tempNum << 3;
+					partTwo = tempNum << 1;
+					tempNum = partOne + partTwo + curDigit;
+
+					// System.out.println("tem num: " + tempNum);
+				}
+			} else {
+				if (unFinishNumInBuf != -1) {
+
+					// System.out.println("unfinished: " + unFinishNumInBuf);
+
+					bufList.add(unFinishNumInBuf);
+					unFinishNumInBuf = -1;
+				} else if (tempNum != -1) {
+
+					// System.out.println("one num: " + tempNum);
+
+					bufList.add(tempNum);
+					tempNum = -1;
+				}
+			}
+		}
+
+		curDigit = mappedByteBuffer.get() - 48;
+		if (curDigit >= 0 && curDigit <= 9) {
+			if (tempNum == -1) {
+				unFinishNumInBuf = curDigit;
+			} else {
+				partOne = tempNum << 3;
+				partTwo = tempNum << 1;
+				tempNum = partOne + partTwo + curDigit;
+
+				unFinishNumInBuf = tempNum;
+			}
+		} else {
+
+			// System.out.println("one num: " + tempNum);
+
+			bufList.add(tempNum);
+			tempNum = -1;
+		}
+
+		Collections.sort(bufList);
+
+		String outFilename = outFileBase.concat(String.valueOf(fileCounter)).concat(".txt");
+
+		//System.out.println("----buf size: " + bufList.size());
+
+		long endTime = System.currentTimeMillis();
+		long runTime = endTime - startTime;
+
+		totalReadTime += runTime;
+
+		//System.out.println("--- read time: " + runTime + " ms, total read: " + totalReadTime + " ms");
+
+		writeToFile(bufList, outFilename);
+		fileCounter++;
+
+		bufList.clear();
+
+	}
+
+	private static void writeToFile(ArrayList<Integer> bufList, String outFilename) throws IOException {
+
+		long startTime = System.currentTimeMillis();
+		RandomAccessFile aFile = new RandomAccessFile(outFilename, "rw");
+
+		FileChannel fc = aFile.getChannel();
+
+		MappedByteBuffer out = fc.map(FileChannel.MapMode.READ_WRITE, aFile.length(), bufList.size() * Integer.BYTES);
+
+		for (Integer num : bufList) {
+			out.putInt(num);
+		}
+
+		long endTime = System.currentTimeMillis();
+		long runningTime = endTime - startTime;
+		totalWriteTime += runningTime;
+
+		/*System.out.println("size: " + bufList.size() + ", write time: " + runningTime + " ms,write total: "
+				+ totalWriteTime + " ms");*/
+
+	}
+
+	/*
+	 * private static void getNumFromBuf(char[] bufChArr, ArrayList<Integer> list,
+	 * int pos) {
+	 * 
+	 * // System.out.println("\n" + String.valueOf(bufChArr));
+	 * 
+	 * // System.out.println("pos: " + pos);
+	 * 
+	 * int firstChPos = 0;
+	 * 
+	 * if (bufChArr[0] < '0' || bufChArr[0] > '9') { if (unFinishNumInBuf != -1) {
+	 * list.add(unFinishNumInBuf); unFinishNumInBuf = -1; } } else if (bufChArr[0]
+	 * >= '0' && bufChArr[0] <= '9') { if (unFinishNumInBuf != -1) { firstChPos =
+	 * concatUnfinishedNum(bufChArr, list, pos);
+	 * 
+	 * // System.out.println("firstPos: " + firstChPos); } }
+	 * 
+	 * int oneNum = -1; int tempOne, tempTwo;
+	 * 
+	 * int bufLength = pos; int lastSpacePos = bufLength;
+	 * 
+	 * if (bufChArr[bufLength - 1] >= '0' && bufChArr[bufLength - 1] <= '9') { for
+	 * (int i = bufLength - 2; i >= 0; i--) { if (bufChArr[i] < '0' || bufChArr[i] >
+	 * '9') { lastSpacePos = i + 1;
+	 * 
+	 * // System.out.println("lastspacePos: " + lastSpacePos);
+	 * 
+	 * break; } }
+	 * 
+	 * // System.out.println("__" + String.valueOf(bufChArr[lastSpacePos]));
+	 * 
+	 * oneNum = bufChArr[lastSpacePos] - 48; if (lastSpacePos < bufLength - 1) { for
+	 * (int i = lastSpacePos + 1; i < bufLength; i++) { int chToInt = bufChArr[i] -
+	 * 48; tempOne = oneNum << 3; tempTwo = oneNum << 1; oneNum = tempOne + tempTwo
+	 * + chToInt; } }
+	 * 
+	 * unFinishNumInBuf = oneNum; oneNum = -1; }
+	 * 
+	 * for (int i = firstChPos; i < lastSpacePos; i++) { char ch = bufChArr[i];
+	 * 
+	 * if (ch >= '0' && ch <= '9') { int chToInt = (int) ch - 48; if (oneNum != -1)
+	 * { tempOne = oneNum << 3; tempTwo = oneNum << 1; oneNum = tempOne + tempTwo +
+	 * chToInt;
+	 * 
+	 * } else { oneNum = chToInt;
+	 * 
+	 * } } else { if (oneNum != -1) { list.add(oneNum); oneNum = -1; } else {
+	 * continue; } } }
+	 * 
+	 * }
+	 * 
+	 * private static int concatUnfinishedNum(char[] bufChArr, ArrayList<Integer>
+	 * list, int pos) { int result = 0; int bufLength = bufChArr.length;
+	 * 
+	 * for (int i = 0; i < bufLength; i++) { if (bufChArr[i] < '0' || bufChArr[i] >
+	 * '9') { result = i; break; } }
+	 * 
+	 * result = result > pos ? pos : result;
+	 * 
+	 * int tempOne = 0, tempTwo = 0;
+	 * 
+	 * for (int i = 0; i < result; i++) { int chToInt = bufChArr[i] - 48; tempOne =
+	 * unFinishNumInBuf << 3; tempTwo = unFinishNumInBuf << 1; unFinishNumInBuf =
+	 * tempOne + tempTwo + chToInt; }
+	 * 
+	 * list.add(unFinishNumInBuf);
+	 * 
+	 * unFinishNumInBuf = -1;
+	 * 
+	 * return result + 1; }
+	 */
+
+}
+
+/*
+ * FileReader fr = new FileReader(srcFilename); BufferedReader bfr = new
+ * BufferedReader(fr); String outFilename;
+ * 
+ * bfr.readLine(); bfr.readLine();
+ * 
+ * 
+ * 
+ * int readCount = 0; int bufPointerPos = 0;
+ * 
+ * long readStartTime = 0; while ((bufPointerPos = bfr.read(bufChArr)) != -1) {
+ * 
+ * readStartTime = System.currentTimeMillis();
+ * 
+ * if (readCount < BUF_READ_COUNT_LIMIT - 1) { getNumFromBuf(bufChArr, bufList,
+ * bufPointerPos);
+ * 
+ * readCount++; continue; } else { getNumFromBuf(bufChArr, bufList,
+ * bufPointerPos);
+ * 
+ * Collections.sort(bufList);
+ * 
+ * // bufList.stream().sorted().collect(Collectors.toList());
+ * 
+ * long readEndTime = System.currentTimeMillis();
+ * 
+ * long readRunningTime = readEndTime - readStartTime; totalReadTime +=
+ * readRunningTime;
+ * 
+ * System.out.println( "----------read time: " + readRunningTime +
+ * " ms,read total: " + totalReadTime + " ms");
+ * 
+ * outFilename = outFileBase.concat(String.valueOf(fileCounter).concat(".txt"));
+ * fileCounter++;
+ * 
+ * writeToFile(bufList, outFilename, readBufSize);
+ * 
+ * bufList.clear(); readCount = 0;
+ * 
+ * }
+ * 
+ * }
+ * 
+ * if (unFinishNumInBuf != -1) { bufList.add(unFinishNumInBuf);
+ * 
+ * unFinishNumInBuf = -1; }
+ * 
+ * if (!bufList.isEmpty()) { Collections.sort(bufList); outFilename =
+ * outFileBase.concat(String.valueOf(fileCounter).concat(".txt"));
+ * 
+ * // System.out.println("last read: " + numReadCount + ", loop time: " + //
+ * loopTime);
+ * 
+ * writeToFile(bufList, outFilename, readBufSize); } bufList = null;
+ * 
+ * long endTime = System.currentTimeMillis(); long runningTime = endTime -
+ * startTime;
+ * 
+ * System.out.println("running time: " + runningTime + " ms");
+ * System.out.println();
+ * 
+ * bfr.close(); fr.close();
+ */

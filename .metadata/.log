@@ -1,0 +1,683 @@
+!SESSION 2018-12-12 12:48:44.643 -----------------------------------------------
+eclipse.buildId=4.9.0.I20180906-0745
+java.version=1.8.0_151
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-12-12 12:49:10.915
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\WW'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.epp.logging.aeri.ide 2 17 2018-12-12 12:49:11.165
+!MESSAGE Server ‘org.eclipse.epp.logging.aeri.ide.server’ failed with exception: Service Temporarily Unavailable. ; version: 2.0.7.v20180504-0806
+!STACK 0
+org.apache.http.client.HttpResponseException: Service Temporarily Unavailable
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.HttpResponses$ProgressMonitorResponseHandler.handleResponse(HttpResponses.java:66)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.HttpResponses$ProgressMonitorResponseStringHandler.handleResponse(HttpResponses.java:88)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.HttpResponses$ProgressMonitorResponseStringHandler.handleResponse(HttpResponses.java:1)
+	at org.apache.http.client.fluent.Response.handleResponse(Response.java:90)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.HttpResponses.getContentWithProgress(HttpResponses.java:51)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.IO.refreshConfiguration(IO.java:65)
+	at org.eclipse.epp.internal.logging.aeri.ide.server.mars.ServerConnection.startUp(ServerConnection.java:124)
+	at com.google.common.util.concurrent.AbstractIdleService$DelegateService$1.run(AbstractIdleService.java:62)
+	at com.google.common.util.concurrent.Callables$4.run(Callables.java:122)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.oomph.setup.ui 1 0 2018-12-12 12:49:18.742
+!MESSAGE Setup tasks were performed during startup updating 5 preferences. See 'C:\Users\WW\eclipse\jee-2018-09\eclipse\configuration\org.eclipse.oomph.setup\setup.log' for details
+
+!ENTRY org.eclipse.jface.text 2 0 2018-12-12 12:52:58.318
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+
+!ENTRY org.eclipse.recommenders.types.rcp 1 4 2018-12-12 13:12:20.491
+!MESSAGE Full project indexing required:
+  [+] C:\Program Files\Java\jre1.8.0_151\lib\charsets.jar
+  [+] C:\Program Files\Java\jre1.8.0_151\lib\ext\access-bridge-64.jar
+  [+] C:\Program Files\Java\jre1.8.0_151\lib\ext\cldrdata.jar
+  [+] C:\Program Files\Java\jre1.8.0_151\lib\ext\dnsns.jar
+  [+] C:\Program Files\Java\jre1.8.0_151\lib\ext\jaccess.jar
+  [+] C:\Program Files\Java\jre1.8.0_151\lib\ext\jfxrt.jar
+  [+] C:\Program Files\Java\jre1.8.0_151\lib\ext\localedata.jar
+  [+] C:\Program Files\Java\jre1.8.0_151\lib\ext\nashorn.jar
+  [+] C:\Program Files\Java\jre1.8.0_151\lib\ext\sunec.jar
+  [+] C:\Program Files\Java\jre1.8.0_151\lib\ext\sunjce_provider.jar
+  [+] C:\Program Files\Java\jre1.8.0_151\lib\ext\sunmscapi.jar
+  [+] C:\Program Files\Java\jre1.8.0_151\lib\ext\sunpkcs11.jar
+  [+] C:\Program Files\Java\jre1.8.0_151\lib\ext\zipfs.jar
+  [+] C:\Program Files\Java\jre1.8.0_151\lib\jce.jar
+  [+] C:\Program Files\Java\jre1.8.0_151\lib\jfr.jar
+  [+] C:\Program Files\Java\jre1.8.0_151\lib\jsse.jar
+  [+] C:\Program Files\Java\jre1.8.0_151\lib\resources.jar
+  [+] C:\Program Files\Java\jre1.8.0_151\lib\rt.jar
+
+!STACK 0
+org.eclipse.recommenders.utils.Logs$LogTraceException
+	at org.eclipse.recommenders.utils.Logs$LogTraceException.newTrace(Logs.java:381)
+	at org.eclipse.recommenders.utils.Logs.log(Logs.java:134)
+	at org.eclipse.recommenders.internal.types.rcp.ProjectTypesIndex.needsRebuild(ProjectTypesIndex.java:169)
+	at org.eclipse.recommenders.internal.types.rcp.ProjectTypesIndex.startUp(ProjectTypesIndex.java:122)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
+!SESSION 2018-12-12 13:19:51.991 -----------------------------------------------
+eclipse.buildId=4.9.0.I20180906-0745
+java.version=1.8.0_151
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2018-12-12 13:19:57.163
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-12-12 13:20:06.950
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\WW'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jface.text 2 0 2018-12-12 13:20:58.119
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+!SESSION 2018-12-14 22:37:24.924 -----------------------------------------------
+eclipse.buildId=4.9.0.I20180906-0745
+java.version=1.8.0_151
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-12-14 22:38:02.939
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\WW'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jface.text 2 0 2018-12-14 22:40:18.122
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+!SESSION 2018-12-15 00:54:15.001 -----------------------------------------------
+eclipse.buildId=4.9.0.I20180906-0745
+java.version=1.8.0_151
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-12-15 00:54:28.394
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\WW'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jface.text 2 0 2018-12-15 00:54:43.421
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+!SESSION 2018-12-15 20:15:34.510 -----------------------------------------------
+eclipse.buildId=4.9.0.I20180906-0745
+java.version=1.8.0_151
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-12-15 20:15:51.406
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\WW'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jface.text 2 0 2018-12-15 21:35:25.525
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+!SESSION 2018-12-17 09:36:55.173 -----------------------------------------------
+eclipse.buildId=4.9.0.I20180906-0745
+java.version=1.8.0_151
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-12-17 09:37:08.405
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\WW'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.core.jobs 4 2 2018-12-17 09:37:12.686
+!MESSAGE An internal error occurred during: "Task List Indexer".
+!STACK 0
+java.lang.NumberFormatException: For input string: "1 (1)"
+	at java.lang.NumberFormatException.forInputString(Unknown Source)
+	at java.lang.Long.parseLong(Unknown Source)
+	at org.apache.lucene.index.SegmentInfos.generationFromSegmentsFileName(SegmentInfos.java:248)
+	at org.apache.lucene.index.SegmentInfos.getLastCommitGeneration(SegmentInfos.java:187)
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:673)
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:637)
+	at org.apache.lucene.index.SegmentInfos.readLatestCommit(SegmentInfos.java:443)
+	at org.apache.lucene.index.IndexWriter.<init>(IndexWriter.java:841)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.createIndexWriter(TaskListIndex.java:1289)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.rebuildIndexCompletely(TaskListIndex.java:1235)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.maintainIndex(TaskListIndex.java:1103)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.access$0(TaskListIndex.java:1084)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex$MaintainIndexJob.run(TaskListIndex.java:184)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jface.text 2 0 2018-12-17 09:45:04.567
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+
+!ENTRY org.eclipse.jface.text 2 0 2018-12-17 19:14:20.945
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+!SESSION 2018-12-18 08:25:07.616 -----------------------------------------------
+eclipse.buildId=4.9.0.I20180906-0745
+java.version=1.8.0_151
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-12-18 08:25:24.573
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\WW'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.core.jobs 4 2 2018-12-18 08:25:26.774
+!MESSAGE An internal error occurred during: "Task List Indexer".
+!STACK 0
+java.lang.NumberFormatException: For input string: "1 (1)"
+	at java.lang.NumberFormatException.forInputString(Unknown Source)
+	at java.lang.Long.parseLong(Unknown Source)
+	at org.apache.lucene.index.SegmentInfos.generationFromSegmentsFileName(SegmentInfos.java:248)
+	at org.apache.lucene.index.SegmentInfos.getLastCommitGeneration(SegmentInfos.java:187)
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:673)
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:637)
+	at org.apache.lucene.index.SegmentInfos.readLatestCommit(SegmentInfos.java:443)
+	at org.apache.lucene.index.IndexWriter.<init>(IndexWriter.java:841)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.createIndexWriter(TaskListIndex.java:1289)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.rebuildIndexCompletely(TaskListIndex.java:1235)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.maintainIndex(TaskListIndex.java:1103)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.access$0(TaskListIndex.java:1084)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex$MaintainIndexJob.run(TaskListIndex.java:184)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jface.text 2 0 2018-12-18 08:27:04.534
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+!SESSION 2018-12-19 18:14:59.246 -----------------------------------------------
+eclipse.buildId=4.9.0.I20180906-0745
+java.version=1.8.0_151
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-12-19 18:15:19.227
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\WW'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.core.jobs 4 2 2018-12-19 18:15:21.905
+!MESSAGE An internal error occurred during: "Task List Indexer".
+!STACK 0
+java.lang.NumberFormatException: For input string: "1 (1)"
+	at java.lang.NumberFormatException.forInputString(Unknown Source)
+	at java.lang.Long.parseLong(Unknown Source)
+	at org.apache.lucene.index.SegmentInfos.generationFromSegmentsFileName(SegmentInfos.java:248)
+	at org.apache.lucene.index.SegmentInfos.getLastCommitGeneration(SegmentInfos.java:187)
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:673)
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:637)
+	at org.apache.lucene.index.SegmentInfos.readLatestCommit(SegmentInfos.java:443)
+	at org.apache.lucene.index.IndexWriter.<init>(IndexWriter.java:841)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.createIndexWriter(TaskListIndex.java:1289)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.rebuildIndexCompletely(TaskListIndex.java:1235)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.maintainIndex(TaskListIndex.java:1103)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.access$0(TaskListIndex.java:1084)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex$MaintainIndexJob.run(TaskListIndex.java:184)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jface.text 2 0 2018-12-19 18:28:50.378
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+
+!ENTRY org.eclipse.jface.text 2 0 2018-12-19 18:29:03.791
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2018-12-19 20:46:52.560
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 4 10050 2018-12-19 20:46:52.560
+!MESSAGE Cannot complete the request.  See the error log for details.
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 2 10004 2018-12-19 20:46:52.560
+!MESSAGE "Memory Analyzer" will be ignored because a newer version is already installed. 
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 2 10004 2018-12-19 20:46:52.560
+!MESSAGE "Memory Analyzer (Charts) [optional]" will be ignored because a newer version is already installed. 
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2018-12-19 20:46:52.576
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 4 10050 2018-12-19 20:46:52.576
+!MESSAGE Cannot complete the request.  See the error log for details.
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 2 10004 2018-12-19 20:46:52.576
+!MESSAGE "Memory Analyzer" will be ignored because a newer version is already installed. 
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 2 10004 2018-12-19 20:46:52.576
+!MESSAGE "Memory Analyzer (Charts) [optional]" will be ignored because a newer version is already installed. 
+
+!ENTRY org.eclipse.mat.ui 1 0 2018-12-19 21:10:25.773
+!MESSAGE Detected compressed references, because with uncompressed 64-bit references the array at 0xd1b7e1b8 would overlap the array at 0xd16cfee8
+
+!ENTRY org.eclipse.mat.ui 1 0 2018-12-19 21:10:28.902
+!MESSAGE Wrote threads call stacks to C:\Users\WW\java_error_in_idea.threads
+
+!ENTRY org.eclipse.mat.ui 1 0 2018-12-19 21:10:29.352
+!MESSAGE Heap C:\Users\WW\java_error_in_idea.hprof contains 14,104,430 objects
+
+!ENTRY org.eclipse.mat.ui 1 0 2018-12-19 21:10:48.570
+!MESSAGE Removed 1,612,300 unreachable objects using 66,392,136 bytes
+
+!ENTRY org.eclipse.mat.ui 2 0 2018-12-19 21:13:59.819
+!MESSAGE Problem listing JVM processes using C:\Program Files\Java\jre1.8.0_151\bin\java rc = 1 : Exception in thread "main" java.lang.LinkageError
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider$VirtualMachine.getClass(IBMDumpProvider.java:643)
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider$VirtualMachine.getStaticClass(IBMDumpProvider.java:590)
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider$VirtualMachine.list(IBMDumpProvider.java:482)
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider.getAvailableVMs1(IBMDumpProvider.java:1213)
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider.main(IBMDumpProvider.java:1423)
+Caused by: java.lang.ClassNotFoundException: com.sun.tools.attach.VirtualMachine
+	at java.net.URLClassLoader.findClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Unknown Source)
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider$VirtualMachine.getClass(IBMDumpProvider.java:607)
+	... 4 more
+
+
+!ENTRY org.eclipse.mat.ui 1 0 2018-12-19 21:14:17.680
+!MESSAGE Executing { "jmap", "-dump:format=b,file=C:\Users\WW\java_pid106184.0001.hprof", "106184" }
+
+!ENTRY org.eclipse.mat.ui 1 0 2018-12-19 21:14:20.970
+!MESSAGE Detected compressed references, because with uncompressed 64-bit references the array at 0xc0003980 would overlap the array at 0xc0003960
+
+!ENTRY org.eclipse.mat.ui 1 0 2018-12-19 21:14:21.987
+!MESSAGE Wrote threads call stacks to C:\Users\WW\java_pid106184.0001.threads
+
+!ENTRY org.eclipse.mat.ui 1 0 2018-12-19 21:14:22.078
+!MESSAGE Heap C:\Users\WW\java_pid106184.0001.hprof contains 4,674,698 objects
+
+!ENTRY org.eclipse.mat.ui 1 0 2018-12-19 21:14:28.666
+!MESSAGE Removed 2,044,189 unreachable objects using 480,661,504 bytes
+
+!ENTRY org.eclipse.mat.ui 2 0 2018-12-19 21:43:50.576
+!MESSAGE Problem listing JVM processes using C:\Program Files\Java\jre1.8.0_151\bin\java rc = 1 : Exception in thread "main" java.lang.LinkageError
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider$VirtualMachine.getClass(IBMDumpProvider.java:643)
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider$VirtualMachine.getStaticClass(IBMDumpProvider.java:590)
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider$VirtualMachine.list(IBMDumpProvider.java:482)
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider.getAvailableVMs1(IBMDumpProvider.java:1213)
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider.main(IBMDumpProvider.java:1423)
+Caused by: java.lang.ClassNotFoundException: com.sun.tools.attach.VirtualMachine
+	at java.net.URLClassLoader.findClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Unknown Source)
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider$VirtualMachine.getClass(IBMDumpProvider.java:607)
+	... 4 more
+
+
+!ENTRY org.eclipse.mat.ui 1 0 2018-12-19 21:43:57.994
+!MESSAGE Executing { "jmap", "-dump:format=b,file=C:\Users\WW\java_pid28848.0001.hprof", "28848" }
+
+!ENTRY org.eclipse.mat.ui 2 0 2018-12-19 21:44:24.396
+!MESSAGE Problem listing JVM processes using C:\Program Files\Java\jre1.8.0_151\bin\java rc = 1 : Exception in thread "main" java.lang.LinkageError
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider$VirtualMachine.getClass(IBMDumpProvider.java:643)
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider$VirtualMachine.getStaticClass(IBMDumpProvider.java:590)
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider$VirtualMachine.list(IBMDumpProvider.java:482)
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider.getAvailableVMs1(IBMDumpProvider.java:1213)
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider.main(IBMDumpProvider.java:1423)
+Caused by: java.lang.ClassNotFoundException: com.sun.tools.attach.VirtualMachine
+	at java.net.URLClassLoader.findClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Unknown Source)
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider$VirtualMachine.getClass(IBMDumpProvider.java:607)
+	... 4 more
+
+
+!ENTRY org.eclipse.mat.ui 1 0 2018-12-19 21:44:35.571
+!MESSAGE Executing { "jmap", "-dump:format=b,file=C:\Users\WW\java_pid106184.0001.hprof", "106184" }
+
+!ENTRY org.eclipse.mat.ui 1 0 2018-12-19 21:44:37.969
+!MESSAGE Reparsing heap dump file 'C:\Users\WW\java_pid106184.0001.hprof' modified at 2018-12-19, 9:44 p.m. as it is newer than index file 'C:\Users\WW\java_pid106184.0001.index' modified at 2018-12-19, 9:14 p.m.
+
+!ENTRY org.eclipse.mat.ui 1 0 2018-12-19 21:44:38.427
+!MESSAGE Detected compressed references, because with uncompressed 64-bit references the array at 0xc0003980 would overlap the array at 0xc0003960
+
+!ENTRY org.eclipse.mat.ui 1 0 2018-12-19 21:44:39.751
+!MESSAGE Wrote threads call stacks to C:\Users\WW\java_pid106184.0001.threads
+
+!ENTRY org.eclipse.mat.ui 1 0 2018-12-19 21:44:39.839
+!MESSAGE Heap C:\Users\WW\java_pid106184.0001.hprof contains 5,803,221 objects
+
+!ENTRY org.eclipse.mat.ui 1 0 2018-12-19 21:44:46.959
+!MESSAGE Removed 3,322,725 unreachable objects using 388,168,216 bytes
+
+!ENTRY org.eclipse.mat.ui 2 0 2018-12-19 21:48:16.642
+!MESSAGE Problem listing JVM processes using C:\Program Files\Java\jre1.8.0_151\bin\java rc = 1 : Exception in thread "main" java.lang.LinkageError
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider$VirtualMachine.getClass(IBMDumpProvider.java:643)
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider$VirtualMachine.getStaticClass(IBMDumpProvider.java:590)
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider$VirtualMachine.list(IBMDumpProvider.java:482)
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider.getAvailableVMs1(IBMDumpProvider.java:1213)
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider.main(IBMDumpProvider.java:1423)
+Caused by: java.lang.ClassNotFoundException: com.sun.tools.attach.VirtualMachine
+	at java.net.URLClassLoader.findClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Unknown Source)
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider$VirtualMachine.getClass(IBMDumpProvider.java:607)
+	... 4 more
+
+
+!ENTRY org.eclipse.mat.ui 2 0 2018-12-19 21:50:15.853
+!MESSAGE Problem listing JVM processes using C:\Program Files\Java\jre1.8.0_151\bin\java rc = 1 : Exception in thread "main" java.lang.LinkageError
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider$VirtualMachine.getClass(IBMDumpProvider.java:643)
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider$VirtualMachine.getStaticClass(IBMDumpProvider.java:590)
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider$VirtualMachine.list(IBMDumpProvider.java:482)
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider.getAvailableVMs1(IBMDumpProvider.java:1213)
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider.main(IBMDumpProvider.java:1423)
+Caused by: java.lang.ClassNotFoundException: com.sun.tools.attach.VirtualMachine
+	at java.net.URLClassLoader.findClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Unknown Source)
+	at org.eclipse.mat.ibmvm.acquire.IBMDumpProvider$VirtualMachine.getClass(IBMDumpProvider.java:607)
+	... 4 more
+
+
+!ENTRY org.eclipse.mat.ui 1 0 2018-12-19 21:53:11.907
+!MESSAGE Detected compressed references, because with uncompressed 64-bit references the array at 0xffa11f00 would overlap the array at 0xffa11e88
+
+!ENTRY org.eclipse.mat.ui 1 0 2018-12-19 21:53:11.964
+!MESSAGE Wrote threads call stacks to D:\Dump\java_pid57144.threads
+
+!ENTRY org.eclipse.mat.ui 1 0 2018-12-19 21:53:11.968
+!MESSAGE Heap D:\Dump\java_pid57144.hprof contains 114,285 objects
+
+!ENTRY org.eclipse.mat.ui 1 0 2018-12-19 21:53:12.188
+!MESSAGE Removed 803 unreachable objects using 37,064 bytes
+!SESSION 2018-12-20 08:12:52.151 -----------------------------------------------
+eclipse.buildId=4.9.0.I20180906-0745
+java.version=1.8.0_151
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-12-20 08:13:06.694
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\WW'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jface.text 2 0 2018-12-20 08:13:54.894
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+
+!ENTRY org.eclipse.core.jobs 4 2 2018-12-20 08:22:06.296
+!MESSAGE An internal error occurred during: "Task List Indexer".
+!STACK 0
+java.lang.NumberFormatException: For input string: "1 (1)"
+	at java.lang.NumberFormatException.forInputString(Unknown Source)
+	at java.lang.Long.parseLong(Unknown Source)
+	at org.apache.lucene.index.SegmentInfos.generationFromSegmentsFileName(SegmentInfos.java:248)
+	at org.apache.lucene.index.SegmentInfos.getLastCommitGeneration(SegmentInfos.java:187)
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:673)
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:637)
+	at org.apache.lucene.index.SegmentInfos.readLatestCommit(SegmentInfos.java:443)
+	at org.apache.lucene.index.IndexWriter.<init>(IndexWriter.java:841)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.createIndexWriter(TaskListIndex.java:1289)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.rebuildIndexCompletely(TaskListIndex.java:1235)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.maintainIndex(TaskListIndex.java:1103)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.access$0(TaskListIndex.java:1084)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex$MaintainIndexJob.run(TaskListIndex.java:184)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jface.text 2 0 2018-12-20 08:50:20.800
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+!SESSION 2018-12-21 10:18:24.303 -----------------------------------------------
+eclipse.buildId=4.9.0.I20180906-0745
+java.version=1.8.0_151
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-12-21 10:18:40.332
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\WW'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.core.jobs 4 2 2018-12-21 10:18:44.206
+!MESSAGE An internal error occurred during: "Task List Indexer".
+!STACK 0
+java.lang.NumberFormatException: For input string: "1 (1)"
+	at java.lang.NumberFormatException.forInputString(Unknown Source)
+	at java.lang.Long.parseLong(Unknown Source)
+	at org.apache.lucene.index.SegmentInfos.generationFromSegmentsFileName(SegmentInfos.java:248)
+	at org.apache.lucene.index.SegmentInfos.getLastCommitGeneration(SegmentInfos.java:187)
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:673)
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:637)
+	at org.apache.lucene.index.SegmentInfos.readLatestCommit(SegmentInfos.java:443)
+	at org.apache.lucene.index.IndexWriter.<init>(IndexWriter.java:841)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.createIndexWriter(TaskListIndex.java:1289)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.rebuildIndexCompletely(TaskListIndex.java:1235)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.maintainIndex(TaskListIndex.java:1103)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.access$0(TaskListIndex.java:1084)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex$MaintainIndexJob.run(TaskListIndex.java:184)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jface.text 2 0 2018-12-21 10:19:01.775
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+
+!ENTRY org.eclipse.jface.text 2 0 2018-12-21 18:53:23.630
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+!SESSION 2018-12-22 20:38:50.787 -----------------------------------------------
+eclipse.buildId=4.9.0.I20180906-0745
+java.version=1.8.0_151
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-12-22 20:39:05.957
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\WW'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.core.jobs 4 2 2018-12-22 20:39:09.845
+!MESSAGE An internal error occurred during: "Task List Indexer".
+!STACK 0
+java.lang.NumberFormatException: For input string: "1 (1)"
+	at java.lang.NumberFormatException.forInputString(Unknown Source)
+	at java.lang.Long.parseLong(Unknown Source)
+	at org.apache.lucene.index.SegmentInfos.generationFromSegmentsFileName(SegmentInfos.java:248)
+	at org.apache.lucene.index.SegmentInfos.getLastCommitGeneration(SegmentInfos.java:187)
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:673)
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:637)
+	at org.apache.lucene.index.SegmentInfos.readLatestCommit(SegmentInfos.java:443)
+	at org.apache.lucene.index.IndexWriter.<init>(IndexWriter.java:841)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.createIndexWriter(TaskListIndex.java:1289)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.rebuildIndexCompletely(TaskListIndex.java:1235)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.maintainIndex(TaskListIndex.java:1103)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.access$0(TaskListIndex.java:1084)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex$MaintainIndexJob.run(TaskListIndex.java:184)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jface.text 2 0 2018-12-22 21:42:11.933
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+!SESSION 2018-12-23 11:49:58.940 -----------------------------------------------
+eclipse.buildId=4.9.0.I20180906-0745
+java.version=1.8.0_151
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-12-23 11:50:13.559
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\WW'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.core.jobs 4 2 2018-12-23 11:50:17.676
+!MESSAGE An internal error occurred during: "Task List Indexer".
+!STACK 0
+java.lang.NumberFormatException: For input string: "1 (1)"
+	at java.lang.NumberFormatException.forInputString(Unknown Source)
+	at java.lang.Long.parseLong(Unknown Source)
+	at org.apache.lucene.index.SegmentInfos.generationFromSegmentsFileName(SegmentInfos.java:248)
+	at org.apache.lucene.index.SegmentInfos.getLastCommitGeneration(SegmentInfos.java:187)
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:673)
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:637)
+	at org.apache.lucene.index.SegmentInfos.readLatestCommit(SegmentInfos.java:443)
+	at org.apache.lucene.index.IndexWriter.<init>(IndexWriter.java:841)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.createIndexWriter(TaskListIndex.java:1289)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.rebuildIndexCompletely(TaskListIndex.java:1235)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.maintainIndex(TaskListIndex.java:1103)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.access$0(TaskListIndex.java:1084)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex$MaintainIndexJob.run(TaskListIndex.java:184)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jface.text 2 0 2018-12-23 12:05:38.712
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+
+!ENTRY org.eclipse.jface.text 2 0 2018-12-23 12:05:42.440
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+!SESSION 2018-12-24 13:05:18.833 -----------------------------------------------
+eclipse.buildId=4.9.0.I20180906-0745
+java.version=1.8.0_151
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-12-24 13:05:34.991
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\WW'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.core.jobs 4 2 2018-12-24 13:05:37.392
+!MESSAGE An internal error occurred during: "Task List Indexer".
+!STACK 0
+java.lang.NumberFormatException: For input string: "1 (1)"
+	at java.lang.NumberFormatException.forInputString(Unknown Source)
+	at java.lang.Long.parseLong(Unknown Source)
+	at org.apache.lucene.index.SegmentInfos.generationFromSegmentsFileName(SegmentInfos.java:248)
+	at org.apache.lucene.index.SegmentInfos.getLastCommitGeneration(SegmentInfos.java:187)
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:673)
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:637)
+	at org.apache.lucene.index.SegmentInfos.readLatestCommit(SegmentInfos.java:443)
+	at org.apache.lucene.index.IndexWriter.<init>(IndexWriter.java:841)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.createIndexWriter(TaskListIndex.java:1289)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.rebuildIndexCompletely(TaskListIndex.java:1235)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.maintainIndex(TaskListIndex.java:1103)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.access$0(TaskListIndex.java:1084)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex$MaintainIndexJob.run(TaskListIndex.java:184)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jface.text 2 0 2018-12-24 13:10:53.069
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+
+!ENTRY org.eclipse.jface.text 2 0 2018-12-24 21:16:45.552
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+!SESSION 2018-12-25 10:49:35.646 -----------------------------------------------
+eclipse.buildId=4.9.0.I20180906-0745
+java.version=1.8.0_151
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-12-25 10:49:58.208
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\WW'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.core.jobs 4 2 2018-12-25 10:50:00.570
+!MESSAGE An internal error occurred during: "Task List Indexer".
+!STACK 0
+java.lang.NumberFormatException: For input string: "1 (1)"
+	at java.lang.NumberFormatException.forInputString(Unknown Source)
+	at java.lang.Long.parseLong(Unknown Source)
+	at org.apache.lucene.index.SegmentInfos.generationFromSegmentsFileName(SegmentInfos.java:248)
+	at org.apache.lucene.index.SegmentInfos.getLastCommitGeneration(SegmentInfos.java:187)
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:673)
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:637)
+	at org.apache.lucene.index.SegmentInfos.readLatestCommit(SegmentInfos.java:443)
+	at org.apache.lucene.index.IndexWriter.<init>(IndexWriter.java:841)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.createIndexWriter(TaskListIndex.java:1289)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.rebuildIndexCompletely(TaskListIndex.java:1235)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.maintainIndex(TaskListIndex.java:1103)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.access$0(TaskListIndex.java:1084)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex$MaintainIndexJob.run(TaskListIndex.java:184)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jface.text 2 0 2018-12-25 10:50:46.126
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+!SESSION 2018-12-25 20:41:09.259 -----------------------------------------------
+eclipse.buildId=4.9.0.I20180906-0745
+java.version=1.8.0_151
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-12-25 20:41:28.214
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\WW'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.core.jobs 4 2 2018-12-25 20:41:29.412
+!MESSAGE An internal error occurred during: "Task List Indexer".
+!STACK 0
+java.lang.NumberFormatException: For input string: "1 (1)"
+	at java.lang.NumberFormatException.forInputString(Unknown Source)
+	at java.lang.Long.parseLong(Unknown Source)
+	at org.apache.lucene.index.SegmentInfos.generationFromSegmentsFileName(SegmentInfos.java:248)
+	at org.apache.lucene.index.SegmentInfos.getLastCommitGeneration(SegmentInfos.java:187)
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:673)
+	at org.apache.lucene.index.SegmentInfos$FindSegmentsFile.run(SegmentInfos.java:637)
+	at org.apache.lucene.index.SegmentInfos.readLatestCommit(SegmentInfos.java:443)
+	at org.apache.lucene.index.IndexWriter.<init>(IndexWriter.java:841)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.createIndexWriter(TaskListIndex.java:1289)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.rebuildIndexCompletely(TaskListIndex.java:1235)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.maintainIndex(TaskListIndex.java:1103)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex.access$0(TaskListIndex.java:1084)
+	at org.eclipse.mylyn.internal.tasks.index.core.TaskListIndex$MaintainIndexJob.run(TaskListIndex.java:184)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jface.text 2 0 2018-12-25 21:12:28.166
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'

@@ -1,0 +1,28 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.function.LongToDoubleFunction;
+
+public class GetNumCount {
+	public static void main(String[] args) throws IOException {
+		final String srcFilename = "./OutFile/Out_group10_10M_5MB_final.txt";
+		
+		/*
+		RandomAccessFile rFile = new RandomAccessFile(srcFilename, "r");
+		long size = rFile.length() / 4;
+		
+		
+		
+		System.out.println("size: " + size + ", length: " + rFile.length());*/
+		
+		BufferedReader bfr = new BufferedReader(new FileReader(srcFilename));
+		
+		/*bfr.readLine();
+		bfr.readLine();*/
+		
+		String[] arrays = bfr.readLine().split("\\s+");
+		
+		System.out.println("total numbers: " + arrays.length);
+	}
+}

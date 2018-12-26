@@ -1,0 +1,18 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.function.LongToDoubleFunction;
+
+public class GetNumCount {
+	public static void main(String[] args) throws IOException {
+		final String srcFilename = "./OutFile/Out_group10_10M_5MB_0.txt";
+		
+		RandomAccessFile rFile = new RandomAccessFile(srcFilename, "r");
+		long size = rFile.length() / 4;
+		
+		
+		
+		System.out.println("size: " + size);
+	}
+}

@@ -1,0 +1,39 @@
+import java.io.*;
+import java.util.Random;
+
+public class GenTxt {
+
+    final static int numberToBeGen = 50000000;
+    final static String pathname = "./TestData/Random_50M.txt";
+
+    public static void main(String[] args) throws IOException {
+                
+        File filename = new File(pathname);
+        filename.createNewFile();
+        BufferedWriter out = new BufferedWriter(new FileWriter(filename));
+        genRanNum(out, numberToBeGen);
+        System.out.println("finished!");
+
+
+    }
+
+    static void genRanNum(BufferedWriter out, int numToGen) throws IOException {
+        if(numToGen <= 0){
+            return;
+        }
+        else{
+        	String firstLine = numToGen + "\t5m\t";
+        	out.write(firstLine);
+        	out.newLine();
+        	out.newLine();
+            Random rand = new Random();           
+
+            for(int i = 0 ; i < numToGen; i++){
+                int ranNumber = (int) rand.nextInt((int) Math.pow(10, 8));               
+                out.write(ranNumber + '\t');
+                //out.flush();
+            }
+            out.close();
+        }
+    }
+}

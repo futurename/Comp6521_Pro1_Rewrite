@@ -1,0 +1,22 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class GetNumCount {
+	public static void main(String[] args) throws IOException {
+		final String srcFilename = "./OutFile/Out_group10_10M_5MB_0.txt";
+		
+		FileReader fr = new FileReader(srcFilename);
+		BufferedReader bReader = new BufferedReader(fr);
+		
+		String[] splitString = null;
+		String line;
+		
+		while((line = bReader.readLine()) != null) {
+			splitString = line.split('\t');
+			
+		}
+		
+		System.out.println(splitString.length);
+	}
+}

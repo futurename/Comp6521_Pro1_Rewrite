@@ -1,0 +1,29 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.StreamTokenizer;
+import java.util.ArrayList;
+
+public class TokenTester {
+
+	public static void main(String[] args) throws IOException {
+
+		String srcFilename = "./random.group10_10M_5MB.txt";
+		String ourFilename = "./OutFile/Out_group10_10M_5MB_token.txt";
+		
+		BufferedReader bfr = new BufferedReader(new FileReader(srcFilename));
+		StreamTokenizer st = new StreamTokenizer(bfr);
+		
+		st.ordinaryChar('\t');
+		
+		ArrayList<String> bufList = new ArrayList<>();
+		
+		while(st.nextToken() != StreamTokenizer.TT_EOF) {
+			bufList.add(st.sval);
+		}
+		
+		System.out.println(bufList);
+	}
+
+}

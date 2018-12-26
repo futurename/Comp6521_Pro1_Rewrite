@@ -1,0 +1,26 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class GetNumCount {
+	public static void main(String[] args) throws IOException {
+		final String srcFilename = "./OutFile/Out_group10_10M_5MB_0.txt";
+		
+		FileReader fr = new FileReader(srcFilename);
+		BufferedReader bReader = new BufferedReader(fr);
+		
+		bReader.readLine();
+		bReader.readLine();
+		
+		String[] splitString = null;
+		String line;
+		
+		while((line = bReader.readLine()) != null) {
+			splitString = line.split(" ");
+			
+		}
+		
+		System.out.println(splitString.length);
+	}
+}

@@ -1,0 +1,80 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import jdk.internal.dynalink.beans.StaticClass;
+
+class PassOne {
+	public static String srcFilename = "./input_1.txt";
+	public static String outFilename = "./out_input_1.txt";
+
+	public static void main(String[] args) throws IOException {
+		long startTime = System.currentTimeMillis();
+		
+		readFromSrcFile();
+		
+		long endTime = System.currentTimeMillis();
+		long runningTime = endTime - startTime;
+		
+		System.out.println("reading finished!, time: " + runningTime);
+
+	}
+
+	static void readFromSrcFile() throws IOException {
+	   FileReader inFile = new FileReader(srcFilename);	   
+	   BufferedReader bfr = new BufferedReader(inFile);
+	   
+	   
+	   String firstLineString = bfr.readLine();
+	   int pos1 = firstLineString.indexOf(" ");
+	   String totalNumber = firstLineString.substring(0,pos1);
+	   int pos2 = firstLineString.indexOf("m");
+	   String memSize = firstLineString.substring(pos1+1, pos2+1);
+	   
+	   System.out.println(totalNumber + ", " + memSize);
+	   
+	   String curLineString = null;
+	   ArrayList<Integer> curLineIntegers = null;
+	   bfr.readLine();
+	   
+	   while((curLineString = bfr.readLine()) != null) {
+		   //System.out.println(curLineString);
+		   curLineIntegers = getIntValue(curLineString);
+		   writeToFile(curLineIntegers);
+		   
+	   }
+	   
+	   
+   }
+
+	static void writeToFile(ArrayList<Integer> data) throws IOException {
+	   FileWriter outFile = new FileWriter(outFilename,true);
+	   BufferedWriter bfw = new BufferedWriter(outFile);
+	   for(int i = 0, length = data.size(); i < length; i++) {
+		   bfw.write(data.get(i));
+		   bfw.append(",");
+	   }
+	   bfw.newLine();
+	   bfw.close();
+   }
+
+	static ArrayList<Integer> getIntValue(String str){
+	   ArrayList<Integer> result = new ArrayList<>();
+	   int startPos = 0, endPos = 0;
+	   int length = str.length();
+	   while(endPos < length) {
+		   endPos = str.indexOf(" ");
+		   String curNumStr = str.substring(startPos, endPos);
+		   result.add(Integer.valueOf(curNumStr));
+		   startPos = endPos;
+	   }
+	   result.add(Integer.valueOf(str.substring(startPos))));
+	   return result;
+   }
+
+}

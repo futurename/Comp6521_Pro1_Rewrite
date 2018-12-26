@@ -1,0 +1,43 @@
+
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
+import java.util.ArrayList;
+
+public class RandomAccessFileTest {
+	public static void main(String[] args) throws IOException {
+		
+
+		long startTime = System.currentTimeMillis();
+
+		final int READ_BUF = 102400 * 5;
+		
+		int count = 0;
+
+		RandomAccessFile raf = new RandomAccessFile("./OutFile/Out_group10_10M_5MB_0.txt", "r");
+		//RandomAccessFile rafw = new RandomAccessFile("./OutFile/random_output.txt", "rw");
+		
+		FileChannel fcr = raf.getChannel();
+		
+		MappedByteBuffer in = fcr.map(FileChannel.MapMode.READ_ONLY, 0, raf.length());
+		
+		while(in != null) {
+			count++;	
+			in.getInt();
+		}
+		
+		System.out.println("count: " + count);
+		
+
+		long endTime = System.currentTimeMillis();
+		long runningTime = endTime - startTime;
+		System.out.println("running time: " + runningTime + " ms");
+		
+		raf.close();
+		fcr.close();
+
+	}
+
+	
+}

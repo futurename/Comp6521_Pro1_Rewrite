@@ -1,0 +1,66 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.util.ArrayList;
+
+import jdk.internal.dynalink.beans.StaticClass;
+
+class PassOne {
+	public static String srcFilename="./group10_10M_5MB.txt";
+	public static String outFilename = "./out_group10_10M_5MB.txt";
+
+	public static void main(String[] args) {
+
+		readFromSrcFile();
+		System.out.println("reading finished!");
+
+	}
+
+	void readFromSrcFile() {
+	   File inFile = new File(srcFilename);	   
+	   BufferedReader bfr = new BufferedReader(inFile);
+	   
+	   
+	   String firstLineString = bfr.readLine();
+	   int pos1 = firstLineString.indexOf("\\s+"):
+	   String talNumber = firstLineString.substring(0,pos1));
+	   int pos2 = firstLineString.indexOf("m");
+	   String memSize = firstLineString.substring(po1+1, pos2+1);
+	   
+	   System.out.println(totalNumber + ", " + memSize);
+	   
+	   String curLineString = null;
+	   while(curLineString = bfr.readLine() != null) {
+		   ArrayList<Integer> curLineIntegers = getIntValue(curLineString);
+		   writeToFile(curLineIntegers);
+		   
+	   }
+	   
+	   
+   }
+
+	void writeToFile(ArrayList<Integer> data) {
+	   File outFile = new File(outFilename);
+	   BufferedWriter bfw = new BufferedWriter(outFile,true);
+	   for(int i = 0, int length = data.size(); i < length; i++) {
+		   bfw.append(data.get(i));
+		   bfw.append(",");
+	   }
+	   bfw.newLine();
+	   bfw.close();
+   }
+
+	ArrayList<Integer> getIntValue(String str){
+	   ArrayList<Integer> result = new ArrayList<>();
+	   int startPos = 0, endPos = 0;
+	   int length - str.length();
+	   while(endPos <= length) {
+		   endPos = str.indexOf("\\s");
+		   String curIntString = str.substring(startPos, endPos);
+		   int curInt = Integer.valueOf(curIntString);
+		   result.add(curInt);
+	   }
+	   return result;
+   }
+
+}
